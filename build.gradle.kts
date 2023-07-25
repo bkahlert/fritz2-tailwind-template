@@ -21,14 +21,24 @@ val fritz2Version = "1.0-RC6"
 kotlin {
     jvm()
     js(IR) {
-        browser()
+        browser {
+            commonWebpackConfig(Action<KotlinWebpackConfig> {
+                devServer = devServer?.copy(open = false)
+            })
+        }
+        yarn.apply {
+            ignoreScripts = false // suppress "warning Ignored scripts due to flag." warning
+            yarnLockMismatchReport = YarnLockMismatchReport.NONE
+            reportNewYarnLock = true // true
+            yarnLockAutoReplace = true // true
+        }
     }.binaries.executable()
 
     sourceSets {
         val commonMain by getting {
             dependencies {
                 implementation("dev.fritz2:core:$fritz2Version")
-                // implementation("dev.fritz2:headless:$fritz2Version") // optional
+                implementation("dev.fritz2:headless:$fritz2Version") // optional
             }
         }
         val jvmMain by getting {
@@ -56,6 +66,7 @@ kotlin {
 /**
  * KSP support - start
  */
+// FIXME: Broken with upgrade to Kotlin 1.9.0
 dependencies {
     add("kspCommonMainMetadata", "dev.fritz2:lenses-annotation-processor:$fritz2Version")
 }
