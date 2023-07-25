@@ -1,7 +1,10 @@
+import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
+import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnLockMismatchReport
+import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
+
 plugins {
-    kotlin("multiplatform") version "1.7.20"
-    // KSP support
-    id("com.google.devtools.ksp") version "1.7.20-1.0.6"
+    kotlin("multiplatform") version "1.8.22"
+    id("com.google.devtools.ksp") version "1.8.22-1.0.11" // KSP support
 }
 
 
