@@ -1,9 +1,15 @@
 package app
 
+import dev.fritz2.core.alt
 import dev.fritz2.core.render
+import dev.fritz2.core.src
 import dev.fritz2.core.storeOf
 import model.Framework
 import model.name
+
+@JsModule("./logo.png")
+@JsNonModule
+private external val logo: String
 
 fun main() {
 
@@ -24,6 +30,10 @@ fun main() {
                 div("p-6 bg-white") {
                     +"I'm using: "
                     nameStore.data.renderText()
+                    img {
+                        src(logo)
+                        alt("Fritz2 logo")
+                    }
                 }
             }
         }
