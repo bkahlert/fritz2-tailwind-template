@@ -30,12 +30,14 @@ fun main() {
                 div("p-6 bg-white") {
                     +"I'm using: "
                     nameStore.data.renderText()
-                    img {
+                    img("animate-pulse [animation-iteration-count:3] h-12") {
                         src(logo)
                         alt("Fritz2 logo")
                     }
                 }
             }
         }
+
+        toastDemo()
     }
 }
