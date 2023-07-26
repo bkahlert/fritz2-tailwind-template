@@ -5,6 +5,9 @@
 ## Features
 
 - Updated to Kotlin 1.8.22
+- Upgrade to Tailwind CSS 3.3.3
+- PostCSS `@import` support
+- Optional Tailwind CSS utils (for example, .prose-box, pointer-coarse:, etc.)
 - Headless UI demo for Toasts
 - Support for image and font assets
 - The Browser does not open everytime the WebPack's Dev Server is started

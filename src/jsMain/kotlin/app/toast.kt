@@ -27,12 +27,7 @@ fun RenderContext.toastDemo() {
         )
     }
 
-    div(
-        """absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-            | flex flex-col gap-6
-            | border-2 border-sky-700 rounded p-4
-        """.trimMargin()
-    ) {
+    div("container mx-auto flex flex-col gap-6 border-2 border-sky-700 rounded p-4") {
         h2("text-lg font-semibold") {
             +"Toast demo"
         }

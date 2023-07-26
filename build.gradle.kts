@@ -48,16 +48,21 @@ kotlin {
         val jsMain by getting {
             dependencies {
                 // tailwind
-                implementation(npm("tailwindcss", "3.2.1"))
-                // implementation(npm("@tailwindcss/forms", "0.5.3")) // optional
+                implementation(npm("tailwindcss", "^3.3.3")) { because("low-level CSS classes") }
+
+                // optional tailwind plugins
+                implementation(devNpm("@tailwindcss/typography", "^0.5")) { because("prose classes to format arbitrary text") }
+                // implementation(devNpm("@tailwindcss/forms", "^0.5")) { because("form-specific tailwind features") }
+                implementation(devNpm("tailwind-heropatterns", "^0.0.8")) { because("hero-pattern like striped backgrounds") }
 
                 // webpack
-                implementation(devNpm("postcss", "8.4.17"))
-                implementation(devNpm("postcss-loader", "7.0.1"))
-                implementation(devNpm("autoprefixer", "10.4.12"))
+                implementation(devNpm("postcss", "^8.4.17")) { because("CSS post transformation, e.g. auto-prefixing") }
+                implementation(devNpm("postcss-loader", "^7.0.1")) { because("Loader to process CSS with PostCSS") }
+                implementation(devNpm("postcss-import", "^15.1")) { because("@import support") }
+                implementation(devNpm("autoprefixer", "10.4.12")) { because("auto-prefixing by PostCSS") }
                 implementation(devNpm("css-loader", "6.7.1"))
                 implementation(devNpm("style-loader", "3.3.1"))
-                implementation(devNpm("cssnano", "5.1.13"))
+                implementation(devNpm("cssnano", "5.1.13")) { because("CSS minification by PostCSS") }
             }
         }
     }
