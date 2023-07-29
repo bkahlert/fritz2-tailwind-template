@@ -61,6 +61,11 @@ const tailwindConfig = {
   'use strict'
 
   const entry = config.output.path + '/../processedResources/js/main/' + mainCssFile
+
+  // Try the following when attempting to upgrade to Kotlin 1.9
+  // const entry = config && config.output && config.output.path
+  //   ? config.output.path + '/../../../processedResources/js/main/' + mainCssFile
+  //   : './kotlin/' + mainCssFile
   config.entry.main.push(entry)
   config.module.rules.push({
     test: /\.css$/,
