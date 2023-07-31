@@ -7,7 +7,7 @@ import dev.fritz2.core.storeOf
 import model.Framework
 import model.name
 
-@JsModule("./logo.png")
+@JsModule("./images/logo.png")
 @JsNonModule
 private external val logo: String
 
